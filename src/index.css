@@ -1,0 +1,183 @@
+/* ============================================
+   GLOBAL STYLES — Pratik Lipane Portfolio
+   Design: Dark editorial with neon accents
+   ============================================ */
+
+:root {
+  /* Colors */
+  --clr-bg:        #080b10;
+  --clr-surface:   #0e1420;
+  --clr-surface-2: #141c2d;
+  --clr-border:    rgba(255, 255, 255, 0.06);
+  --clr-accent:    #00f5d4;
+  --clr-accent-2:  #7b61ff;
+  --clr-accent-glow: rgba(0, 245, 212, 0.15);
+  --clr-text:      #e8eaf0;
+  --clr-text-muted:#7a8499;
+  --clr-white:     #ffffff;
+
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* Spacing */
+  --section-padding: 6rem 0;
+  --container-max:   1200px;
+  --container-px:    clamp(1.5rem, 5vw, 3rem);
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition: 0.35s var(--ease-out);
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--clr-bg); }
+::-webkit-scrollbar-thumb { background: var(--clr-accent); border-radius: 10px; }
+
+/* Selection */
+::selection {
+  background: var(--clr-accent);
+  color: var(--clr-bg);
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Utility: container */
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-px);
+}
+
+/* Utility: section */
+.section {
+  padding: var(--section-padding);
+}
+
+/* Utility: section title */
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--clr-white);
+  margin-bottom: 0.4rem;
+}
+
+.section-title span {
+  color: var(--clr-accent);
+}
+
+.section-subtitle {
+  font-size: 0.95rem;
+  color: var(--clr-text-muted);
+  margin-bottom: 3.5rem;
+  letter-spacing: 0.03em;
+}
+
+/* Utility: tag label above section titles */
+.tag-label {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  background: var(--clr-accent-glow);
+  border: 1px solid rgba(0, 245, 212, 0.2);
+  padding: 0.3rem 0.85rem;
+  border-radius: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Utility: button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  padding: 0.8rem 1.8rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: var(--clr-accent);
+  color: var(--clr-bg);
+}
+
+.btn-primary:hover {
+  background: var(--clr-white);
+  box-shadow: 0 0 30px rgba(0, 245, 212, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--clr-accent);
+  border: 1px solid rgba(0, 245, 212, 0.4);
+}
+
+.btn-outline:hover {
+  background: var(--clr-accent-glow);
+  border-color: var(--clr-accent);
+  transform: translateY(-2px);
+}
+
+/* Fade-in animation utility */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fadeUp 0.7s var(--ease-out) both;
+}
+
+/* Stagger helpers */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.22s; }
+.delay-3 { animation-delay: 0.34s; }
+.delay-4 { animation-delay: 0.46s; }
+.delay-5 { animation-delay: 0.58s; }

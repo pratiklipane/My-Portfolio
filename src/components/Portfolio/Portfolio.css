@@ -1,0 +1,194 @@
+/* ============================================
+   Portfolio.css
+   ============================================ */
+
+.portfolio {
+  background: var(--clr-surface);
+}
+
+.portfolio__header {
+  max-width: 560px;
+}
+
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* ---- Project card ---- */
+.project-card {
+  background: var(--clr-bg);
+  border: 1px solid var(--clr-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s, border-color 0.35s;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.45);
+  border-color: rgba(255,255,255,0.1);
+}
+
+/* Thumbnail */
+.project-card__thumb {
+  position: relative;
+  height: 200px;
+  background: var(--clr-surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project-card__thumb::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 60%, color-mix(in srgb, var(--project-color) 18%, transparent), transparent 70%);
+}
+
+.project-card__num {
+  position: absolute;
+  top: 1rem;
+  left: 1.2rem;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: color-mix(in srgb, var(--project-color) 60%, transparent);
+}
+
+.project-card__icon {
+  font-size: 4rem;
+  color: var(--project-color);
+  opacity: 0.85;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.35s var(--ease-out), opacity 0.3s;
+}
+
+.project-card:hover .project-card__icon {
+  transform: scale(0.85);
+  opacity: 0.3;
+}
+
+/* Overlay */
+.project-card__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: rgba(8,11,16,0.7);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.project-card:hover .project-card__overlay { opacity: 1; }
+
+.project-card__ov-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--clr-bg);
+  background: var(--clr-accent);
+  padding: 0.55rem 1rem;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.project-card__ov-btn:hover {
+  background: var(--clr-white);
+}
+
+.project-card__ov-btn--ghost {
+  background: transparent;
+  color: var(--clr-white);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.project-card__ov-btn--ghost:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Body */
+.project-card__body {
+  padding: 1.5rem 1.6rem;
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-card__tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--clr-text-muted);
+  background: var(--clr-surface-2);
+  padding: 0.15rem 0.55rem;
+  border-radius: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.project-card__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  margin-bottom: 0.55rem;
+  letter-spacing: -0.01em;
+}
+
+.project-card__desc {
+  font-size: 0.88rem;
+  color: var(--clr-text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.project-card__links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.project-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--clr-accent);
+  transition: gap 0.2s, opacity 0.2s;
+}
+
+.project-card__link:hover { gap: 0.55rem; }
+
+.project-card__link--muted {
+  color: var(--clr-text-muted);
+}
+
+.project-card__link--muted:hover {
+  color: var(--clr-white);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .portfolio__grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 580px) {
+  .portfolio__grid { grid-template-columns: 1fr; }
+}
